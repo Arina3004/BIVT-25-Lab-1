@@ -1,4 +1,8 @@
-﻿namespace Lab1
+﻿using System.ComponentModel.Design;
+using System.IO.Pipes;
+using System.Runtime.InteropServices;
+
+namespace Lab1
 {
     public class White
     {
@@ -7,8 +11,9 @@
             bool answer = false;
 
             // code here
-            answer = d > 0;
-            Console.WriteLine(d);
+            if (d > 0) answer = true;
+            else answer = false;
+
             // end
 
             return answer;
@@ -18,15 +23,9 @@
             bool answer = false;
 
             // code here
-            if (n % 2 == 0)
-            {
-                answer = true;
+            if (n % 2 == 0) answer = true;
+            else answer = false;
 
-            }
-            else
-                {
-                    answer = false;
-                }
             // end
 
             return answer;
@@ -36,14 +35,10 @@
             int answer = 0;
 
             // code here
-            if (a > b)
-            {
-                answer = a;
-            }
-            else
-            {
-                answer = b;
-            }
+            if (a > b) answer = a;
+            else answer = b;
+            
+
             // end
 
             return answer;
@@ -53,15 +48,12 @@
             double answer = 0;
 
             // code here
-            double D = Math.Abs(d);
-            double F = Math.Abs(f);
-            if (D > F)
-            {
-                answer = D;
-            }
+            double a = Math.Abs(f);
+            double b = Math.Abs(d);
+            if (a < b) answer = f;
             else
             {
-                answer = F;
+                answer = d;
             }
             // end
 
@@ -72,25 +64,20 @@
             double answer = 0;
 
             // code here
-            if (Math.Abs(x) >1)
-            {
-                answer = 1;
-            }
-            else
-            {
-                answer = x;
-            }
-            // end
+            if (Math.Abs(x) > 1) answer = 1;
+            else answer = x;
 
-            return answer;
+                // end
+
+                return answer;
         }
         public bool Task6(double x, double y, double r)
         {
             bool answer = false;
 
             // code here
-            double v = Math.Abs(x * x + y * y - r * r);
-            if (v <= Math.Pow(10, -6) || v <= r * r * 1e-4)
+            double vir = x * x + y * y - r * r;
+            if (Math.Abs(vir) <= Math.Pow(10, -6) || Math.Abs(vir) <= r * r * 1e-4)
             {
                 answer = true;
             }
@@ -101,30 +88,21 @@
 
         public bool Task7(int n)
         {
-            bool answer = false;
-
+                
             // code here
             int s = n * n;
-            
-            if (s - n > 2 * n)
-            {
+            bool answer = false;
+            if (s - n > 2 * n) 
+            { 
                 if (n % 2 == 0)
                 {
                     answer = true;
                 }
-                else
-                {
-                    answer = false;
-                }
             }
-            else
-            {
-                answer = false;
+            return answer;
 
-            }
             // end
 
-            return answer;
         }
         public bool Task8(double L, int T, int M)
         {
@@ -133,15 +111,13 @@
             // code here
             if (L / 10 <= 3)
             {
-                if (T + M >= 5)
+                if (T+M >= 5)
                 {
-                    if (M % 2 == 0)
-                    {
+                    if ( M % 2 == 0)
                         answer = true;
-                    }
                 }
-            }
-
+                
+            }   
             // end
 
             return answer;
